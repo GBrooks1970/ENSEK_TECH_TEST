@@ -1,0 +1,138 @@
+Create a simple API BDD test project using C# to implement each feature file generated previously.
+Use BDD/Gherkin Test Cases and the Screenplay design pattern.
+Use C# as the code base. Use SpecFlow to implement step definition.
+
+It should include:
+Gherkin feature files (.feature)
+Step definitions
+Screenplay structure: Actors, Tasks, and Questions
+Basic test hook setup
+
+Display the results in a new canvas named 
+Selenium UI BDD test project
+
+
+
+Complete the project implementation, following this folder structure:
+Project Structure:
+
+- Features/
+  - user_authentication.feature
+  - view_energy_types.feature
+  - purchase_energy_units.feature
+  - manage_orders.feature
+  - reset_system.feature
+
+- Steps/
+  - LoginSteps.cs
+  - EnergyTypesSteps.cs
+  - PurchaseSteps.cs
+  - ManageOrdersSteps.cs
+  - ResetSystemSteps.cs
+
+- Screenplay/
+  - Actors/
+    - User.cs
+  - Tasks/
+    - Login.cs
+    - ViewEnergyTypes.cs
+    - PurchaseEnergy.cs
+    - ViewOrders.cs
+    - DeleteOrder.cs
+    - ResetSystem.cs
+  - Questions/
+    - TokenReceived.cs
+    - EnergyTypesReturned.cs
+    - OrderHistoryReturned.cs
+    - ResetConfirmation.cs
+
+
+Here is a full review of all your Task URLs and HTTP methods, matched against the [ENSEK Swagger documentation](https://qacandidatetest.ensek.io/swagger.json):
+
+---
+
+### **1. PurchaseEnergyUnits**
+```csharp
+var client = new RestClient($"https://qacandidatetest.ensek.io/ENSEK/buy/{_energyId}/{_quantity}");
+var request = new RestRequest() { Method = Method.Put };
+```
+- **Matches:** `PUT /ENSEK/buy/{energyId}/{quantity}`
+- **Status:** ✅ Correct
+
+---
+
+### **2. Login**
+```csharp
+var client = new RestClient("https://qacandidatetest.ensek.io/ENSEK/login");
+var request = new RestRequest().AddJsonBody(payload);
+var response = client.Post(request);
+```
+- **Matches:** `POST /ENSEK/login`
+- **Status:** ✅ Correct
+
+---
+
+### **3. ViewOrders**
+```csharp
+var client = new RestClient("https://qacandidatetest.ensek.io/ENSEK/orders");
+var response = client.Get(new RestRequest());
+```
+- **Matches:** `GET /ENSEK/orders`
+- **Status:** ✅ Correct
+
+---
+
+### **4. DeleteOrder**
+```csharp
+var client = new RestClient($"https://qacandidatetest.ensek.io/ENSEK/orders/{_id}");
+var response = client.Delete(new RestRequest());
+```
+- **Matches:** `DELETE /ENSEK/orders/{orderId}`
+- **Status:** ✅ Correct
+
+---
+
+### **5. UpdateOrder**
+```csharp
+var client = new RestClient($"https://qacandidatetest.ensek.io/ENSEK/orders/{_id}");
+var request = new RestRequest().AddJsonBody(_updatePayload);
+var response = client.Put(request);
+```
+- **Matches:** `PUT /ENSEK/orders/{orderId}`
+- **Status:** ✅ Correct
+
+---
+
+### **6. ResetSystem**
+```csharp
+var client = new RestClient("https://qacandidatetest.ensek.io/ENSEK/reset");
+var response = client.Post(new RestRequest());
+```
+- **Matches:** `POST /ENSEK/reset`
+- **Status:** ✅ Correct
+
+---
+
+### **7. ViewEnergyTypes**
+```csharp
+var client = new RestClient("https://qacandidatetest.ensek.io/ENSEK/energytypes");
+var response = client.Get(new RestRequest());
+```
+- **Matches:** `GET /ENSEK/energytypes`
+- **Status:** ✅ Correct
+
+---
+
+## **Summary Table**
+
+| Task                | Method | URL Pattern                                               | Status   |
+|---------------------|--------|-----------------------------------------------------------|----------|
+| PurchaseEnergyUnits | PUT    | /ENSEK/buy/{energyId}/{quantity}                          | ✅       |
+| Login               | POST   | /ENSEK/login                                              | ✅       |
+| ViewOrders          | GET    | /ENSEK/orders                                             | ✅       |
+| DeleteOrder         | DELETE | /ENSEK/orders/{orderId}                                   | ✅       |
+| UpdateOrder         | PUT    | /ENSEK/orders/{orderId}                                   | ✅       |
+| ResetSystem         | POST   | /ENSEK/reset                                              | ✅       |
+| ViewEnergyTypes     | GET    | /ENSEK/energytypes                                        | ✅       |
+
+---

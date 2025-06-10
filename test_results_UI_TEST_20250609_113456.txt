@@ -1,0 +1,382 @@
+  Determining projects to restore...
+D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Ensek.UITests.csproj : warning NU1902: Package 'RestSharp' 110.2.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4rr6-2v9v-wcpc
+  All projects are up-to-date for restore.
+  SpecFlowFeatureFiles: Features\BuyEnergy.feature
+  -> Using specflow.json
+  SpecFlowGeneratedFiles: Features\BuyEnergy.feature.cs
+D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Ensek.UITests.csproj : warning NU1902: Package 'RestSharp' 110.2.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4rr6-2v9v-wcpc
+  Ensek.UITests -> D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\bin\Debug\net6.0\Ensek.UITests.dll
+Test run for D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\bin\Debug\net6.0\Ensek.UITests.dll (.NETCoreApp,Version=v6.0)
+VSTest version 17.11.0 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (2.8s)
+When the user buys "2" units of "Gas"
+-> done: BuyEnergySteps.WhenTheUserBuysUnitsOf("2", "Gas") (0.7s)
+Then the user should see a sale confirmation message for "Gas" with "2" units
+Purchase Confirmed text: Thank you for your purchase of 2 units of Gas We have popped it in the post and it will be with you shortly.
+There are now 2998 units of Gas left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage("Gas", "2") (0.2s)
+Then the user should see the Sale Confirmed units available for "Gas" are updated
+Sale Confirmed text: There are now 2998 units of Gas left in our stores.
+-> error: Value cannot be null. (Parameter 's') (0.0s)
+
+  Failed PurchaseEnergyWithVariousQuantitiesAndTypes("2","Gas","the user should see the Sale Confirmed units available for \"Gas\" are updated",null) [7 s]
+  Error Message:
+   System.ArgumentNullException : Value cannot be null. (Parameter 's')
+  Stack Trace:
+     at System.Int32.Parse(String s)
+   at BuyEnergySteps.ThenTheUserShouldSeeTheUnitsAvailableForAreUpdated(String energyType) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 76
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors()
+   at Ensek.UITests.Features.BuyEnergyFeature.ScenarioCleanup()
+   at Ensek.UITests.Features.BuyEnergyFeature.PurchaseEnergyWithVariousQuantitiesAndTypes(String quantity, String energyType, String expectedResult, String[] exampleTags) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\BuyEnergy.feature:line 45
+
+  Standard Output Messages:
+ Given the user opens the Buy Energy page
+ -> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (2.8s)
+ When the user buys "2" units of "Gas"
+ -> done: BuyEnergySteps.WhenTheUserBuysUnitsOf("2", "Gas") (0.7s)
+ Then the user should see a sale confirmation message for "Gas" with "2" units
+ Purchase Confirmed text: Thank you for your purchase of 2 units of Gas We have popped it in the post and it will be with you shortly.
+ There are now 2998 units of Gas left in our stores.
+ -> done: BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage("Gas", "2") (0.2s)
+ Then the user should see the Sale Confirmed units available for "Gas" are updated
+ Sale Confirmed text: There are now 2998 units of Gas left in our stores.
+ -> error: Value cannot be null. (Parameter 's') (0.0s)
+
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (2.1s)
+When the user buys "-3" units of "Electricity"
+-> done: BuyEnergySteps.WhenTheUserBuysUnitsOf("-3", "Electricity") (0.7s)
+Then the user should see a sale confirmation message for "Electricity" with "-3" units
+Purchase Confirmed text: Thank you for your purchase of -3 units of Electricity We have popped it in the post and it will be with you shortly.
+There are now 4325 units of Electricity left in our stores.
+-> error:   Confirmation message was not displayed.
+  Expected: True
+  But was:  False
+ (0.2s)
+Then the user should see an error message
+-> skipped because of previous errors
+
+  Failed PurchaseEnergyWithVariousQuantitiesAndTypes("-3","Electricity","the user should see an error message",null) [6 s]
+  Error Message:
+     Confirmation message was not displayed.
+  Expected: True
+  But was:  False
+
+  Stack Trace:
+     at BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage(String energyType, String quantity) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 94
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors()
+   at Ensek.UITests.Features.BuyEnergyFeature.ScenarioCleanup()
+   at Ensek.UITests.Features.BuyEnergyFeature.PurchaseEnergyWithVariousQuantitiesAndTypes(String quantity, String energyType, String expectedResult, String[] exampleTags) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\BuyEnergy.feature:line 45
+
+1)    at BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage(String energyType, String quantity) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 94
+
+
+  Standard Output Messages:
+ Given the user opens the Buy Energy page
+ -> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (2.1s)
+ When the user buys "-3" units of "Electricity"
+ -> done: BuyEnergySteps.WhenTheUserBuysUnitsOf("-3", "Electricity") (0.7s)
+ Then the user should see a sale confirmation message for "Electricity" with "-3" units
+ Purchase Confirmed text: Thank you for your purchase of -3 units of Electricity We have popped it in the post and it will be with you shortly.
+ There are now 4325 units of Electricity left in our stores.
+ -> error:   Confirmation message was not displayed.
+   Expected: True
+   But was:  False
+  (0.2s)
+ Then the user should see an error message
+ -> skipped because of previous errors
+
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.1s)
+When the user notes the units available and buys "2" units of "Gas"
+Quanity of Units Available: 2998
+Units available for Gas: 2998
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("2", "Gas") (0.7s)
+Then the user should see a sale confirmation message for "Gas" with "2" units
+Purchase Confirmed text: Thank you for your purchase of 2 units of Gas We have popped it in the post and it will be with you shortly.
+There are now 2996 units of Gas left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage("Gas", "2") (0.1s)
+And the user should see the Sale Confirmed units available for "Gas" are updated
+Sale Confirmed text: There are now 2996 units of Gas left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeTheUnitsAvailableForAreUpdated("Gas") (0.0s)
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.4s)
+When the user notes the units available and buys "5" units of "Electricity"
+Quanity of Units Available: 4325
+Units available for Electricity: 4325
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("5", "Electricity") (0.6s)
+Then the user should see a sale confirmation message for "Electricity" with "5" units
+Purchase Confirmed text: Thank you for your purchase of 5 units of Electricity We have popped it in the post and it will be with you shortly.
+There are now 4320 units of Electricity left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage("Electricity", "5") (0.1s)
+And the user should see the Sale Confirmed units available for "Electricity" are updated
+Sale Confirmed text: There are now 4320 units of Electricity left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeTheUnitsAvailableForAreUpdated("Electricity") (0.0s)
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.4s)
+When the user notes the units available and buys "15" units of "Oil"
+Quanity of Units Available: 20
+Units available for Oil: 20
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("15", "Oil") (0.7s)
+Then the user should see a sale confirmation message for "Oil" with "15" units
+Purchase Confirmed text: Thank you for your purchase of 15 units of Oil We have popped it in the post and it will be with you shortly.
+There are now 5 units of Oil left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage("Oil", "15") (0.1s)
+And the user should see the Sale Confirmed units available for "Oil" are updated
+Sale Confirmed text: There are now 5 units of Oil left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeTheUnitsAvailableForAreUpdated("Oil") (0.0s)
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.3s)
+When the user notes the units available and buys "12" units of "Gas"
+Quanity of Units Available: 2996
+Units available for Gas: 2996
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("12", "Gas") (0.7s)
+Then the user should see a sale confirmation message for "Gas" with "12" units
+Purchase Confirmed text: Thank you for your purchase of 12 units of Gas We have popped it in the post and it will be with you shortly.
+There are now 2984 units of Gas left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage("Gas", "12") (0.2s)
+And the user should see the Sale Confirmed units available for "Gas" are updated
+Sale Confirmed text: There are now 2984 units of Gas left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeTheUnitsAvailableForAreUpdated("Gas") (0.0s)
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.3s)
+When the user notes the units available and buys "-12" units of "Gas"
+Quanity of Units Available: 2984
+Units available for Gas: 2984
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("-12", "Gas") (0.8s)
+Then the user should see a sale confirmation message for "Gas" with "-12" units
+Purchase Confirmed text: Thank you for your purchase of -12 units of Gas We have popped it in the post and it will be with you shortly.
+There are now 2996 units of Gas left in our stores.
+-> error:   Confirmation message was not displayed.
+  Expected: True
+  But was:  False
+ (0.0s)
+And the user should see the Sale Confirmed units available for "Gas" are updated
+-> skipped because of previous errors
+
+  Failed PurchaseValidQuantityOfEnergyType("-12","Gas",null) [5 s]
+  Error Message:
+     Confirmation message was not displayed.
+  Expected: True
+  But was:  False
+
+  Stack Trace:
+     at BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage(String energyType, String quantity) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 94
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors()
+   at Ensek.UITests.Features.BuyEnergyFeature.ScenarioCleanup()
+   at Ensek.UITests.Features.BuyEnergyFeature.PurchaseValidQuantityOfEnergyType(String quantity, String energyType, String[] exampleTags) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\BuyEnergy.feature:line 13
+
+1)    at BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage(String energyType, String quantity) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 94
+
+
+  Standard Output Messages:
+ Given the user opens the Buy Energy page
+ -> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.3s)
+ When the user notes the units available and buys "-12" units of "Gas"
+ Quanity of Units Available: 2984
+ Units available for Gas: 2984
+ -> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("-12", "Gas") (0.8s)
+ Then the user should see a sale confirmation message for "Gas" with "-12" units
+ Purchase Confirmed text: Thank you for your purchase of -12 units of Gas We have popped it in the post and it will be with you shortly.
+ There are now 2996 units of Gas left in our stores.
+ -> error:   Confirmation message was not displayed.
+   Expected: True
+   But was:  False
+  (0.0s)
+ And the user should see the Sale Confirmed units available for "Gas" are updated
+ -> skipped because of previous errors
+
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.3s)
+When the user notes the units available and buys "-1" units of "Electricity"
+Quanity of Units Available: 4320
+Units available for Electricity: 4320
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("-1", "Electricity") (0.7s)
+Then the user should see a sale confirmation message for "Electricity" with "-1" units
+Purchase Confirmed text: Thank you for your purchase of -1 units of Electricity We have popped it in the post and it will be with you shortly.
+There are now 4321 units of Electricity left in our stores.
+-> error:   Confirmation message was not displayed.
+  Expected: True
+  But was:  False
+ (0.2s)
+And the user should see the Sale Confirmed units available for "Electricity" are updated
+-> skipped because of previous errors
+
+  Failed PurchaseValidQuantityOfEnergyType("-1","Electricity",null) [5 s]
+  Error Message:
+     Confirmation message was not displayed.
+  Expected: True
+  But was:  False
+
+  Stack Trace:
+     at BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage(String energyType, String quantity) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 94
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors()
+   at Ensek.UITests.Features.BuyEnergyFeature.ScenarioCleanup()
+   at Ensek.UITests.Features.BuyEnergyFeature.PurchaseValidQuantityOfEnergyType(String quantity, String energyType, String[] exampleTags) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\BuyEnergy.feature:line 13
+
+1)    at BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage(String energyType, String quantity) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 94
+
+
+  Standard Output Messages:
+ Given the user opens the Buy Energy page
+ -> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.3s)
+ When the user notes the units available and buys "-1" units of "Electricity"
+ Quanity of Units Available: 4320
+ Units available for Electricity: 4320
+ -> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("-1", "Electricity") (0.7s)
+ Then the user should see a sale confirmation message for "Electricity" with "-1" units
+ Purchase Confirmed text: Thank you for your purchase of -1 units of Electricity We have popped it in the post and it will be with you shortly.
+ There are now 4321 units of Electricity left in our stores.
+ -> error:   Confirmation message was not displayed.
+   Expected: True
+   But was:  False
+  (0.2s)
+ And the user should see the Sale Confirmed units available for "Electricity" are updated
+ -> skipped because of previous errors
+
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.3s)
+When the user notes the units available and buys "0" units of "Oil"
+Quanity of Units Available: 5
+Units available for Oil: 5
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("0", "Oil") (0.8s)
+Then the user should see a sale confirmation message for "Oil" with "0" units
+Purchase Confirmed text: Thank you for your purchase of 0 units of Oil We have popped it in the post and it will be with you shortly.
+There are now 5 units of Oil left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeAConfirmationMessage("Oil", "0") (0.1s)
+And the user should see the Sale Confirmed units available for "Oil" are updated
+Sale Confirmed text: There are now 5 units of Oil left in our stores.
+-> done: BuyEnergySteps.ThenTheUserShouldSeeTheUnitsAvailableForAreUpdated("Oil") (0.0s)
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.3s)
+When the user notes the units available and buys "x" units of "Gas"
+Quanity of Units Available: 2996
+Units available for Gas: 2996
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("x", "Gas") (0.5s)
+Then the user should see an error message
+-> done: BuyEnergySteps.ThenTheUserShouldSeeAnErrorMessage() (0.0s)
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.4s)
+When the user notes the units available and buys "abc" units of "Electricity"
+Quanity of Units Available: 4321
+Units available for Electricity: 4321
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("abc", "Electricity") (0.4s)
+Then the user should see an error message
+-> error:   Expected: True
+  But was:  False
+ (10.1s)
+
+  Failed PurchaseWithInvalidQuantity("abc","Electricity",null) [15 s]
+  Error Message:
+     Expected: True
+  But was:  False
+
+  Stack Trace:
+     at BuyEnergySteps.ThenTheUserShouldSeeAnErrorMessage() in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 88
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors()
+   at Ensek.UITests.Features.BuyEnergyFeature.ScenarioCleanup()
+   at Ensek.UITests.Features.BuyEnergyFeature.PurchaseWithInvalidQuantity(String quantity, String energyType, String[] exampleTags) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\BuyEnergy.feature:line 30
+
+1)    at BuyEnergySteps.ThenTheUserShouldSeeAnErrorMessage() in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 88
+
+
+  Standard Output Messages:
+ Given the user opens the Buy Energy page
+ -> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.4s)
+ When the user notes the units available and buys "abc" units of "Electricity"
+ Quanity of Units Available: 4321
+ Units available for Electricity: 4321
+ -> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("abc", "Electricity") (0.4s)
+ Then the user should see an error message
+ -> error:   Expected: True
+   But was:  False
+  (10.1s)
+
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.2s)
+When the user notes the units available and buys "xyz" units of "Oil"
+Quanity of Units Available: 5
+Units available for Oil: 5
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("xyz", "Oil") (0.5s)
+Then the user should see an error message
+-> done: BuyEnergySteps.ThenTheUserShouldSeeAnErrorMessage() (0.0s)
+
+Given the user opens the Buy Energy page
+-> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.3s)
+When the user notes the units available and buys "x1" units of "Gas"
+Quanity of Units Available: 2996
+Units available for Gas: 2996
+-> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("x1", "Gas") (0.4s)
+Then the user should see an error message
+-> error:   Expected: True
+  But was:  False
+ (10.1s)
+
+  Failed PurchaseWithInvalidQuantity("x1","Gas",null) [15 s]
+  Error Message:
+     Expected: True
+  But was:  False
+
+  Stack Trace:
+     at BuyEnergySteps.ThenTheUserShouldSeeAnErrorMessage() in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 88
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors()
+   at Ensek.UITests.Features.BuyEnergyFeature.ScenarioCleanup()
+   at Ensek.UITests.Features.BuyEnergyFeature.PurchaseWithInvalidQuantity(String quantity, String energyType, String[] exampleTags) in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\BuyEnergy.feature:line 30
+
+1)    at BuyEnergySteps.ThenTheUserShouldSeeAnErrorMessage() in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\UI_TEST\Features\Steps\BuyEnergySteps.cs:line 88
+
+
+  Standard Output Messages:
+ Given the user opens the Buy Energy page
+ -> done: BuyEnergySteps.GivenTheUserOpensTheBuyEnergyPage() (1.3s)
+ When the user notes the units available and buys "x1" units of "Gas"
+ Quanity of Units Available: 2996
+ Units available for Gas: 2996
+ -> done: BuyEnergySteps.WhenTheUserNotesTheUnitsAvailableAndUserBuysUnitsOf("x1", "Gas") (0.4s)
+ Then the user should see an error message
+ -> error:   Expected: True
+   But was:  False
+  (10.1s)
+
+
+
+Failed!  - Failed:     6, Passed:     7, Skipped:     0, Total:    13, Duration: 1 m 30 s - Ensek.UITests.dll (net6.0)

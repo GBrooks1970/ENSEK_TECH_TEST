@@ -1,0 +1,14 @@
+{
+  "energyTests": [
+    {
+      "energyType": "Gas",
+      "validQuantity": 2,
+      "invalidQuantity": -3
+    },
+    {
+      "energyType": "Electricity",
+      "validQuantity": 5,
+      "invalidQuantity": -1
+    }
+  ]
+}

@@ -1,0 +1,553 @@
+{
+	"info": {
+		"_postman_id": "0f7a705e-9acd-4393-96ad-5a77912c7b8d",
+		"name": "ENSEK_API_Test_Collection_v6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "203574"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response has a token\", function () {",
+							"    const json = pm.response.json();",
+							"    pm.expect(json).to.be.an(\"object\");",
+							"    pm.expect(json).to.have.property(\"access_token\");",
+							"    pm.expect(json).to.have.property(\"message\");",
+							"});",
+							"const token = pm.response.json().access_token;",
+							"pm.environment.set(\"token\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"test\",\n  \"password\": \"testing\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login - Invalid Credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"invalid\",\n  \"password\": \"wrong\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Energy Types",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response contains expected energy types\", function () {",
+							"    const json = pm.response.json();",
+							"    pm.expect(json).to.be.an(\"object\");",
+							"    Object.keys(json).forEach(type => {",
+							"        pm.expect(json[type]).to.have.property('energy_id');",
+							"        pm.environment.set(\"energyId_\" + type.toLowerCase(), json[type].energy_id);",
+							"        console.log(pm.environment.get(\"energyId_\" + type.toLowerCase()));",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/energy",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"energy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Energy Types - No Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/energy",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"energy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase Energy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has a message with extractable values\", function () {",
+							"    const jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an(\"object\");",
+							"    pm.expect(jsonData).to.have.property(\"message\");",
+							"",
+							"    const message = jsonData.message;",
+							"",
+							"    const purchased = message.match(/purchased\\s+(\\d+)/i)?.[1];",
+							"    const cost = message.match(/cost of\\s+([\\d.]+)/i)?.[1];",
+							"    const remaining = message.match(/are\\s+(\\d+)\\s+units remaining/i)?.[1];",
+							"    const orderId = message.match(/order id is\\s+([a-f0-9\\\\-]+)/i)?.[1];",
+							"",
+							"    pm.expect(purchased, \"Missing 'purchased'\").to.not.be.undefined;",
+							"    pm.expect(cost, \"Missing 'cost'\").to.not.be.undefined;",
+							"    pm.expect(remaining, \"Missing 'remaining'\").to.not.be.undefined;",
+							"    pm.expect(orderId, \"Missing 'order ID'\").to.not.be.undefined;",
+							"",
+							"    pm.environment.set(\"orderId_NEW\", orderId);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/buy/{{energyId}}/{{quantity}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"buy",
+						"{{energyId}}",
+						"{{quantity}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase Energy - Loop Through Types",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//pm.test(\"Status code is 200\", function () {",
+							"//    pm.response.to.have.status(200);",
+							"//});",
+							"",
+							"const types = ['electric', 'gas', 'oil', 'nuclear'];",
+							"",
+							"types.forEach(type => {",
+							"  const id = pm.environment.get('energyId_' + type);",
+							"  if (id) {",
+							"    pm.sendRequest({",
+							"      url: pm.environment.get('baseUrl') + '/ENSEK/buy/' + id + '/10',",
+							"      method: 'PUT',",
+							"      header: { 'Authorization': 'Bearer ' + pm.environment.get('token') }",
+							"    }, function (err, res) {",
+							"      pm.test('Status code is 200 for ' + type, function () {",
+							"        pm.expect(res).to.have.property('code', 200);",
+							"      });",
+							"    });",
+							"  }",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/buy/{{energyType}}/10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"buy",
+						"{{energyType}}",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase Energy - Invalid ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/buy/9999/10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"buy",
+						"9999",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View All Orders",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/orders",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View All Orders - No Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/orders",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Order By OrderId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://qacandidatetest.ensek.io/ENSEK/orders/{{orderId_NEW}}",
+					"protocol": "https",
+					"host": [
+						"qacandidatetest",
+						"ensek",
+						"io"
+					],
+					"path": [
+						"ENSEK",
+						"orders",
+						"{{orderId_NEW}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Order By OrderId - No Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://qacandidatetest.ensek.io/ENSEK/orders/{{orderId_NEW}}",
+					"protocol": "https",
+					"host": [
+						"qacandidatetest",
+						"ensek",
+						"io"
+					],
+					"path": [
+						"ENSEK",
+						"orders",
+						"{{orderId_NEW}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Environment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/reset",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Environment - No Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ENSEK/reset",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ENSEK",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://your-api-url.com"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}

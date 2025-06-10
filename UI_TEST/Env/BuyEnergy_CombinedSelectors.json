@@ -1,0 +1,65 @@
+[
+  {
+    "energyType": "Gas",
+    "selectors": {
+      "css": {
+        "input": "table > tbody > tr:nth-child(1) input#energyType_AmountPurchased",
+        "buyButton": "table > tbody > tr:nth-child(1) input.btn.btn-default",
+        "unitsAvailable": "table > tbody > tr:nth-child(1) > td:nth-child(5)",
+        "saleConfirm": "div.well",
+        "saleConfirmResult": "div.well p",
+        "buyMoreButton": "a[href=\"/Energy/Buy\"].btn.btn-default"
+      },
+      "xpath": {
+        "input": "//table/tbody/tr[1]//input[@id='energyType_AmountPurchased']",
+        "buyButton": "//table/tbody/tr[1]//button",
+        "unitsAvailable": "//table/tbody/tr[1]/td[5]",
+        "saleConfirm": "//div/well",
+        "saleConfirmResult": "//div/well/p",
+        "buyMoreButton": "//a[@href=\"/Energy/Buy\"]"
+      }
+    }
+  },
+  {
+    "energyType": "Electricity",
+    "selectors": {
+      "css": {
+        "input": "table > tbody > tr:nth-child(3) input#energyType_AmountPurchased",
+        "buyButton": "table > tbody > tr:nth-child(3) input.btn.btn-default",
+        "unitsAvailable": "table > tbody > tr:nth-child(3) > td:nth-child(5)",
+        "saleConfirm": "div.well",
+        "saleConfirmResult": "div.well p",
+        "buyMoreButton": "a[href=\"/Energy/Buy\"].btn.btn-default"
+      },
+      "xpath": {
+        "input": "//table/tbody/tr[2]//input[@id='energyType_AmountPurchased']",
+        "buyButton": "//table/tbody/tr[2]//button",
+        "unitsAvailable": "//table/tbody/tr[2]/td[5]",
+        "saleConfirm": "//div/well",
+        "saleConfirmResult": "//div/well/p",
+        "buyMoreButton": "//a[@href=\"/Energy/Buy\"]"
+      }
+    }
+  },
+  {
+    "energyType": "Oil",
+    "selectors": {
+      "css": {
+        "input": "table > tbody > tr:nth-child(4) input#energyType_AmountPurchased",
+        "buyButton": "table > tbody > tr:nth-child(4) input.btn.btn-default",
+        "unitsAvailable": "table > tbody > tr:nth-child(4) > td:nth-child(5)",
+        "saleConfirm": "div.well",
+        "saleConfirmResult": "div.well p",
+        "buyMoreButton": "a[href=\"/Energy/Buy\"].btn.btn-default"
+      },
+      "xpath": {
+        "input": "//table/tbody/tr[3]//input[@id='energyType_AmountPurchased']",
+        "buyButton": "//table/tbody/tr[3]//button",
+        "unitsAvailable": "//table/tbody/tr[3]/td[5]",
+        "saleConfirm": "//div/well",
+        "saleConfirmResult": "//div/well/p",
+        "buyMoreButton": "//a[@href=\"/Energy/Buy\"]"
+      }
+    }
+  }
+]

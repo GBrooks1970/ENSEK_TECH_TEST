@@ -1,0 +1,204 @@
+  Determining projects to restore...
+D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\API_TEST\API_BDD_Test_Project.csproj : warning NU1902: Package 'RestSharp' 110.2.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4rr6-2v9v-wcpc
+  All projects are up-to-date for restore.
+  SpecFlowFeatureFiles: Features\manage_orders.feature;Features\purchase_energy_units.feature;Features\reset_system_state.feature;Features\user_authentication.feature;Features\view_energy_types.feature
+  -> Using specflow.json
+  SpecFlowGeneratedFiles: Features\manage_orders.feature.cs
+  SpecFlowGeneratedFiles: Features\purchase_energy_units.feature.cs
+  SpecFlowGeneratedFiles: Features\reset_system_state.feature.cs
+  SpecFlowGeneratedFiles: Features\user_authentication.feature.cs
+  SpecFlowGeneratedFiles: Features\view_energy_types.feature.cs
+D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\API_TEST\API_BDD_Test_Project.csproj : warning NU1902: Package 'RestSharp' 110.2.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4rr6-2v9v-wcpc
+  API_BDD_Test_Project -> D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\API_TEST\bin\Debug\net6.0\API_BDD_Test_Project.dll
+Test run for D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\API_TEST\bin\Debug\net6.0\API_BDD_Test_Project.dll (.NETCoreApp,Version=v6.0)
+VSTest version 17.11.0 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+Given I am authenticated
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5MywianRpIjoiYjcyMWZhMTYtOTFmZi00MjMzLWFiNmMtYTExMWU2ZTM1ZmYyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTMsImV4cCI6MTc0OTQ2NjA5MywicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.ch1bJqOhsEddLhzTwiPocFhjtqzM3xNWgPHD_NvC0Zg
+-> done: AuthenticationSteps.GivenIAmAuthenticated() (0.4s)
+When I request to view my orders
+Using token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5MywianRpIjoiYjcyMWZhMTYtOTFmZi00MjMzLWFiNmMtYTExMWU2ZTM1ZmYyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTMsImV4cCI6MTc0OTQ2NjA5MywicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.ch1bJqOhsEddLhzTwiPocFhjtqzM3xNWgPHD_NvC0Zg
+-> done: ManageOrdersSteps.WhenIRequestToViewMyOrders() (0.1s)
+Then the system returns my order history
+-> done: ManageOrdersSteps.ThenTheSystemReturnsMyOrderHistory() (0.0s)
+
+Given I am not authenticated
+-> done: CommonSteps.GivenIAmNotAuthenticated() (0.0s)
+When I request to view my orders
+-> done: ManageOrdersSteps.WhenIRequestToViewMyOrders() (0.1s)
+Then I am denied access with a 401 Unauthorized response
+-> error:   Expected: Unauthorized
+  But was:  OK
+ (0.1s)
+
+  Skipped DeleteAnOrderByID [2 ms]
+  Skipped UpdateASpecificOrder [< 1 ms]
+  Failed ViewOrdersWithoutAuthentication [200 ms]
+  Error Message:
+     Expected: Unauthorized
+  But was:  OK
+
+  Stack Trace:
+     at Features.Steps.CommonSteps.ThenIAmDeniedAccessWithA401UnauthorizedResponse() in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\API_TEST\Features\Steps\CommonSteps.cs:line 36
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors()
+   at API_BDD_Test_Project.Features.ManageOrdersFeature.ScenarioCleanup()
+   at API_BDD_Test_Project.Features.ManageOrdersFeature.ViewOrdersWithoutAuthentication() in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\API_TEST\Features\manage_orders.feature:line 18
+
+1)    at Features.Steps.CommonSteps.ThenIAmDeniedAccessWithA401UnauthorizedResponse() in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\API_TEST\Features\Steps\CommonSteps.cs:line 36
+
+
+  Standard Output Messages:
+ Given I am not authenticated
+ -> done: CommonSteps.GivenIAmNotAuthenticated() (0.0s)
+ When I request to view my orders
+ -> done: ManageOrdersSteps.WhenIRequestToViewMyOrders() (0.1s)
+ Then I am denied access with a 401 Unauthorized response
+ -> error:   Expected: Unauthorized
+   But was:  OK
+  (0.1s)
+
+
+Given I am authenticated
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NCwianRpIjoiNTE3MDcwYjUtNmE4MS00NTI2LTg1ZjMtMjE1YmVjNWJiODgwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTQsImV4cCI6MTc0OTQ2NjA5NCwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.lipisf17N12qv3I5BYzCPBc-Hi9G1Hrj0vwAhS4dMog
+-> done: AuthenticationSteps.GivenIAmAuthenticated() (0.1s)
+When I place an order to purchase 10 units of energy type 1
+Using token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NCwianRpIjoiNTE3MDcwYjUtNmE4MS00NTI2LTg1ZjMtMjE1YmVjNWJiODgwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTQsImV4cCI6MTc0OTQ2NjA5NCwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.lipisf17N12qv3I5BYzCPBc-Hi9G1Hrj0vwAhS4dMog
+-> done: PurchaseEnergyUnitsSteps.WhenIPlaceAnOrderToPurchaseUnitsOfEnergyType("10", "1") (0.1s)
+Then the order is successfully placed and confirmed
+-> done: PurchaseEnergyUnitsSteps.ThenTheOrderIsSuccessfullyPlacedAndConfirmed() (0.0s)
+
+Given I am authenticated
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NCwianRpIjoiZWQ0Mjk5NmItYmI3NC00MTBlLWE2MTYtNDJmMTFmMzE3MDk5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTQsImV4cCI6MTc0OTQ2NjA5NCwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.LnSW3dRdbEiidva_xettYFCuLxgv2G2o8E3fyX7jksA
+-> done: AuthenticationSteps.GivenIAmAuthenticated() (0.1s)
+When I place an order to purchase 120 units of energy type 3
+Using token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NCwianRpIjoiZWQ0Mjk5NmItYmI3NC00MTBlLWE2MTYtNDJmMTFmMzE3MDk5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTQsImV4cCI6MTc0OTQ2NjA5NCwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.LnSW3dRdbEiidva_xettYFCuLxgv2G2o8E3fyX7jksA
+-> done: PurchaseEnergyUnitsSteps.WhenIPlaceAnOrderToPurchaseUnitsOfEnergyType("120", "3") (0.1s)
+Then the order is successfully placed and confirmed
+-> done: PurchaseEnergyUnitsSteps.ThenTheOrderIsSuccessfullyPlacedAndConfirmed() (0.0s)
+
+Given I am authenticated
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NCwianRpIjoiMzMwZTkzYzItNTA5YS00ZTYyLWIyMGMtNzIxODFhNzZkODIyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTQsImV4cCI6MTc0OTQ2NjA5NCwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.I9zKM1qy3_ijsl5bHh7b_2JyFdMB-ltrENfR0gmWbZE
+-> done: AuthenticationSteps.GivenIAmAuthenticated() (0.1s)
+When I place an order to purchase 500 units of energy type 4
+Using token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NCwianRpIjoiMzMwZTkzYzItNTA5YS00ZTYyLWIyMGMtNzIxODFhNzZkODIyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTQsImV4cCI6MTc0OTQ2NjA5NCwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.I9zKM1qy3_ijsl5bHh7b_2JyFdMB-ltrENfR0gmWbZE
+-> done: PurchaseEnergyUnitsSteps.WhenIPlaceAnOrderToPurchaseUnitsOfEnergyType("500", "4") (0.1s)
+Then the order is successfully placed and confirmed
+-> done: PurchaseEnergyUnitsSteps.ThenTheOrderIsSuccessfullyPlacedAndConfirmed() (0.0s)
+
+Given I am authenticated
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NCwianRpIjoiYjZkYWYyZWYtM2MwYS00ZjY4LTkzOTYtYTExNDFjMGRhYzA5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTQsImV4cCI6MTc0OTQ2NjA5NCwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.86kQiJV_pAGwh8L1x4rpUuwut18jswfzaAFlhb3iLG4
+-> done: AuthenticationSteps.GivenIAmAuthenticated() (0.1s)
+When I place an order to purchase 5 units of energy type -1
+Using token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NCwianRpIjoiYjZkYWYyZWYtM2MwYS00ZjY4LTkzOTYtYTExNDFjMGRhYzA5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTQsImV4cCI6MTc0OTQ2NjA5NCwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.86kQiJV_pAGwh8L1x4rpUuwut18jswfzaAFlhb3iLG4
+API call returned non-success status: 404 NOT FOUND
+-> done: PurchaseEnergyUnitsSteps.WhenIPlaceAnOrderToPurchaseUnitsOfEnergyType("5", "-1") (0.1s)
+Then the request is rejected with a 404 Not Found or a 400 Bad Request response
+-> done: PurchaseEnergyUnitsSteps.ThenTheRequestIsRejectedWithA404NotFoundoR400BadResponse() (0.0s)
+
+Given I am authenticated
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NSwianRpIjoiOWY5NzdhN2UtOWZiMi00NzJjLTlhMzYtOWRiMWJmYzEwNDMwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTUsImV4cCI6MTc0OTQ2NjA5NSwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.wgTVdkkMP-TyyMvmnpFh_Do2O23aai27bXfTkpozXIo
+-> done: AuthenticationSteps.GivenIAmAuthenticated() (0.1s)
+When I place an order to purchase 3 units of energy type abc
+Using token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NSwianRpIjoiOWY5NzdhN2UtOWZiMi00NzJjLTlhMzYtOWRiMWJmYzEwNDMwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTUsImV4cCI6MTc0OTQ2NjA5NSwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.wgTVdkkMP-TyyMvmnpFh_Do2O23aai27bXfTkpozXIo
+API call returned non-success status: 404 NOT FOUND
+-> done: PurchaseEnergyUnitsSteps.WhenIPlaceAnOrderToPurchaseUnitsOfEnergyType("3", "abc") (0.1s)
+Then the request is rejected with a 404 Not Found or a 400 Bad Request response
+-> done: PurchaseEnergyUnitsSteps.ThenTheRequestIsRejectedWithA404NotFoundoR400BadResponse() (0.0s)
+
+Given I am authenticated
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NSwianRpIjoiMmUzMTE0NGItZGEyZi00MGM4LWJiNTctMzM4MTdiYTdhOGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTUsImV4cCI6MTc0OTQ2NjA5NSwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0._zh8UhTtShCqnsoEqnTjWKN3-KlalDKQc7fWfnAWUVw
+-> done: AuthenticationSteps.GivenIAmAuthenticated() (0.1s)
+When I place an order to purchase 2 units of energy type null
+Using token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NSwianRpIjoiMmUzMTE0NGItZGEyZi00MGM4LWJiNTctMzM4MTdiYTdhOGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTUsImV4cCI6MTc0OTQ2NjA5NSwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0._zh8UhTtShCqnsoEqnTjWKN3-KlalDKQc7fWfnAWUVw
+API call returned non-success status: 404 NOT FOUND
+-> done: PurchaseEnergyUnitsSteps.WhenIPlaceAnOrderToPurchaseUnitsOfEnergyType("2", "null") (0.2s)
+Then the request is rejected with a 404 Not Found or a 400 Bad Request response
+-> done: PurchaseEnergyUnitsSteps.ThenTheRequestIsRejectedWithA404NotFoundoR400BadResponse() (0.0s)
+
+Given I am not authenticated
+-> done: CommonSteps.GivenIAmNotAuthenticated() (0.0s)
+When I request to reset the system
+API call returned non-success status: 401 UNAUTHORIZED
+-> done: ResetSystemStateSteps.WhenIRequestToResetTheSystem() (0.2s)
+Then I am denied access with a 401 Unauthorized response
+-> done: CommonSteps.ThenIAmDeniedAccessWithA401UnauthorizedResponse() (0.0s)
+
+Given I am authenticated
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NSwianRpIjoiYWFjODI0YTgtYTYwMy00MGNmLThiNWMtN2VhOWRlY2ZjYTQwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTUsImV4cCI6MTc0OTQ2NjA5NSwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.DdjMzQrjMqdXANwL-knsTyn14-OZhBCmmp9jqq6fKQU
+-> done: AuthenticationSteps.GivenIAmAuthenticated() (0.2s)
+When I request to reset the system
+Using token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NSwianRpIjoiYWFjODI0YTgtYTYwMy00MGNmLThiNWMtN2VhOWRlY2ZjYTQwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTUsImV4cCI6MTc0OTQ2NjA5NSwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.DdjMzQrjMqdXANwL-knsTyn14-OZhBCmmp9jqq6fKQU
+-> done: ResetSystemStateSteps.WhenIRequestToResetTheSystem() (0.1s)
+Then the system is reset successfully
+-> done: ResetSystemStateSteps.ThenTheSystemIsResetSuccessfully() (0.0s)
+
+Given I am not authenticated
+-> done: CommonSteps.GivenIAmNotAuthenticated() (0.0s)
+When I request the list of energy types
+-> done: ViewEnergyTypesSteps.WhenIRequestTheListOfEnergyTypes() (0.1s)
+Then I am denied access with a 401 Unauthorized response
+-> error:   Expected: Unauthorized
+  But was:  OK
+ (0.0s)
+
+Given I am authenticated
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NiwianRpIjoiODQyYzg2MDEtY2FkZi00OWUxLWIwODEtZjM4MTMxNDU5ODQ1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTYsImV4cCI6MTc0OTQ2NjA5NiwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.JBJMMdZIe7Tl6BEE1esEj4oWtpQDGvtUHaBjXcNbFts
+-> done: AuthenticationSteps.GivenIAmAuthenticated() (0.2s)
+When I request the list of energy types
+Using token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0OTQ2NTE5NiwianRpIjoiODQyYzg2MDEtY2FkZi00OWUxLWIwODEtZjM4MTMxNDU5ODQ1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NDk0NjUxOTYsImV4cCI6MTc0OTQ2NjA5NiwicGFzc3dvcmQiOiJ0ZXN0aW5nIn0.JBJMMdZIe7Tl6BEE1esEj4oWtpQDGvtUHaBjXcNbFts
+-> done: ViewEnergyTypesSteps.WhenIRequestTheListOfEnergyTypes() (0.1s)
+Then the system returns all available energy types with IDs
+-> done: ViewEnergyTypesSteps.ThenTheSystemReturnsAllAvailableEnergyTypesWithIDs() (0.0s)
+
+Given I have invalid credentials
+-> done: UserAuthenticationSteps.GivenIHaveInvalidCredentials() (0.0s)
+When I attempt to log in
+API call returned non-success status: 401 UNAUTHORIZED
+-> done: UserAuthenticationSteps.WhenIAttemptToLogIn() (0.1s)
+Then I am denied access with a 401 Unauthorized response
+-> done: CommonSteps.ThenIAmDeniedAccessWithA401UnauthorizedResponse() (0.0s)
+
+Given I have valid credentials
+-> done: UserAuthenticationSteps.GivenIHaveValidCredentials() (0.0s)
+When I attempt to log in
+-> done: UserAuthenticationSteps.WhenIAttemptToLogIn() (0.1s)
+Then I am successfully authenticated with a bearer token
+-> done: UserAuthenticationSteps.ThenIAmSuccessfullyAuthenticatedWithABearerToken() (0.0s)
+
+  Failed RetrieveEnergyTypesWithoutAuthentication [158 ms]
+  Error Message:
+     Expected: Unauthorized
+  But was:  OK
+
+  Stack Trace:
+     at Features.Steps.CommonSteps.ThenIAmDeniedAccessWithA401UnauthorizedResponse() in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\API_TEST\Features\Steps\CommonSteps.cs:line 36
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments, TimeSpan& duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at TechTalk.SpecFlow.TestRunner.CollectScenarioErrors()
+   at API_BDD_Test_Project.Features.RetrieveAllEnergyTypesFeature.ScenarioCleanup()
+   at API_BDD_Test_Project.Features.RetrieveAllEnergyTypesFeature.RetrieveEnergyTypesWithoutAuthentication() in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\API_TEST\Features\view_energy_types.feature:line 19
+
+1)    at Features.Steps.CommonSteps.ThenIAmDeniedAccessWithA401UnauthorizedResponse() in D:\GB_STUFF\ENSEK_INTERVIEW\ENSEK_TECH_TEST\_WIP\API_TEST\Features\Steps\CommonSteps.cs:line 36
+
+
+  Standard Output Messages:
+ Given I am not authenticated
+ -> done: CommonSteps.GivenIAmNotAuthenticated() (0.0s)
+ When I request the list of energy types
+ -> done: ViewEnergyTypesSteps.WhenIRequestTheListOfEnergyTypes() (0.1s)
+ Then I am denied access with a 401 Unauthorized response
+ -> error:   Expected: Unauthorized
+   But was:  OK
+  (0.0s)
+
+
+
+Failed!  - Failed:     2, Passed:    12, Skipped:     2, Total:    16, Duration: 3 s - API_BDD_Test_Project.dll (net6.0)

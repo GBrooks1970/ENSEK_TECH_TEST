@@ -1,0 +1,461 @@
+{
+	"id": "c1509326-0a60-42c7-a2d7-1af6c8c4c95a",
+	"name": "ENSEK_API_Test_Collection_v6",
+	"timestamp": "2025-06-09T10:02:31.138Z",
+	"collection_id": "203574-258d62c2-d326-41fa-a633-9a6de2e3f2ae",
+	"folder_id": 0,
+	"environment_id": "203574-3125ba38-7b81-461e-9b91-04cf7eb1c096",
+	"totalPass": 15,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-06-09T10:02:28.832Z",
+	"totalFail": 4,
+	"results": [
+		{
+			"id": "9c0e7f22-1d6a-45f5-9f9a-b1e0ff886125",
+			"name": "Login",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/login",
+			"time": 211,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has a token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has a token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				211
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has a token": true
+				}
+			]
+		},
+		{
+			"id": "bfb0935e-8294-4aff-8c7b-aadbdf69902a",
+			"name": "Login - Invalid Credentials",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/login",
+			"time": 40,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				40
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "2d94fe52-4f5f-49a4-8457-58089411017e",
+			"name": "View Energy Types",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/energy",
+			"time": 47,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains expected energy types": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains expected energy types": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				47
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains expected energy types": true
+				}
+			]
+		},
+		{
+			"id": "5fef36da-3024-4a02-9296-15fab1f1626a",
+			"name": "View Energy Types - No Auth",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/energy",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 401": false
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				33
+			],
+			"allTests": [
+				{
+					"Status code is 401": false
+				}
+			]
+		},
+		{
+			"id": "8f0e5f15-f5a3-4ed5-85d7-adca897b2f48",
+			"name": "Purchase Energy",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/buy/1/10",
+			"time": 45,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has a message with extractable values": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has a message with extractable values": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				45
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has a message with extractable values": true
+				}
+			]
+		},
+		{
+			"id": "a484efa3-7caa-4abe-a855-2ce3c545385b",
+			"name": "Purchase Energy - Loop Through Types",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/buy/3/10",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 for electric": true,
+				"Status code is 200 for gas": true,
+				"Status code is 200 for oil": true,
+				"Status code is 200 for nuclear": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 for electric": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 for gas": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 for oil": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 for nuclear": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				33
+			],
+			"allTests": [
+				{
+					"Status code is 200 for electric": true,
+					"Status code is 200 for gas": true,
+					"Status code is 200 for oil": true,
+					"Status code is 200 for nuclear": true
+				}
+			]
+		},
+		{
+			"id": "a77ae7d8-85c6-4e6c-bf37-58ef5cc20849",
+			"name": "Purchase Energy - Invalid ID",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/buy/9999/10",
+			"time": 37,
+			"responseCode": {
+				"code": 400,
+				"name": "BAD REQUEST"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "c18e7600-bb00-428d-bc5a-071ba243e847",
+			"name": "View All Orders",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/orders",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				33
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "b63bcfa8-0370-49a2-a52e-3f3f3964c9b2",
+			"name": "View All Orders - No Auth",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/orders",
+			"time": 39,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 401": false
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				39
+			],
+			"allTests": [
+				{
+					"Status code is 401": false
+				}
+			]
+		},
+		{
+			"id": "4a2a487c-fe09-4c83-8755-915ff7c2a095",
+			"name": "Delete Order By OrderId",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/orders/39ca3b06-b8b8-4e30-a3f1-e51b360d633e",
+			"time": 37,
+			"responseCode": {
+				"code": 500,
+				"name": "INTERNAL SERVER ERROR"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "a4ccd9a4-6bfa-42b1-a85a-21ff5b5fa4d2",
+			"name": "Delete Order By OrderId - No Auth",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/orders/39ca3b06-b8b8-4e30-a3f1-e51b360d633e",
+			"time": 35,
+			"responseCode": {
+				"code": 500,
+				"name": "INTERNAL SERVER ERROR"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				35
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "cd2dfaa0-b66f-4200-b926-2d617e9b6104",
+			"name": "Reset Environment",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/reset",
+			"time": 37,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "60c41ef6-3b1e-4a36-b129-436bc59cf6f8",
+			"name": "Reset Environment - No Auth",
+			"url": "https://qacandidatetest.ensek.io/ENSEK/reset",
+			"time": 43,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				43
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 670,
+	"collection": {
+		"requests": [
+			{
+				"id": "9c0e7f22-1d6a-45f5-9f9a-b1e0ff886125",
+				"method": "POST"
+			},
+			{
+				"id": "bfb0935e-8294-4aff-8c7b-aadbdf69902a",
+				"method": "POST"
+			},
+			{
+				"id": "2d94fe52-4f5f-49a4-8457-58089411017e",
+				"method": "GET"
+			},
+			{
+				"id": "5fef36da-3024-4a02-9296-15fab1f1626a",
+				"method": "GET"
+			},
+			{
+				"id": "8f0e5f15-f5a3-4ed5-85d7-adca897b2f48",
+				"method": "PUT"
+			},
+			{
+				"id": "a484efa3-7caa-4abe-a855-2ce3c545385b",
+				"method": "PUT"
+			},
+			{
+				"id": "a77ae7d8-85c6-4e6c-bf37-58ef5cc20849",
+				"method": "PUT"
+			},
+			{
+				"id": "c18e7600-bb00-428d-bc5a-071ba243e847",
+				"method": "GET"
+			},
+			{
+				"id": "b63bcfa8-0370-49a2-a52e-3f3f3964c9b2",
+				"method": "GET"
+			},
+			{
+				"id": "4a2a487c-fe09-4c83-8755-915ff7c2a095",
+				"method": "DELETE"
+			},
+			{
+				"id": "a4ccd9a4-6bfa-42b1-a85a-21ff5b5fa4d2",
+				"method": "DELETE"
+			},
+			{
+				"id": "cd2dfaa0-b66f-4200-b926-2d617e9b6104",
+				"method": "POST"
+			},
+			{
+				"id": "60c41ef6-3b1e-4a36-b129-436bc59cf6f8",
+				"method": "POST"
+			}
+		]
+	}
+}
