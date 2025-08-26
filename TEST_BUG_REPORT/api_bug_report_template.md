@@ -53,7 +53,8 @@
 - **HTTP Request**: (Include curl/Postman/raw payload)
 - **HTTP Response**: (Body + status code)
 - **Test Logs (if automated)**:
-  ```
+
+```text
   [TestSuite] FAIL: test_create_user_without_email
   Expected: 400 Bad Request
   Received: 200 OK

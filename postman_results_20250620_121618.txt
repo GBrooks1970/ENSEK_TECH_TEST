@@ -1,0 +1,113 @@
+newman
+
+ENSEK_API_Test_Collection_v6
+
+→ Login
+  POST https://qacandidatetest.ensek.io/ENSEK/login [200 OK, 568B, 391ms]
+  √  Status code is 200
+  √  Response has a token
+
+→ Login - Invalid Credentials
+  POST https://qacandidatetest.ensek.io/ENSEK/login [401 UNAUTHORIZED, 268B, 36ms]
+  √  Status code is 401
+
+→ View Energy Types
+  GET https://qacandidatetest.ensek.io/ENSEK/energy [200 OK, 590B, 37ms]
+  √  Status code is 200
+  ┌
+  │ 3
+  │ 1
+  │ 2
+  │ 4
+  └
+  √  Response contains expected energy types
+
+→ View Energy Types - No Auth
+  GET https://qacandidatetest.ensek.io/ENSEK/energy [200 OK, 590B, 35ms]
+  1. Status code is 401
+
+→ Purchase Energy
+  PUT https://qacandidatetest.ensek.io/ENSEK/buy/1/10 [200 OK, 394B, 34ms]
+  √  Status code is 200
+  √  Response has a message with extractable values
+
+→ Purchase Energy - Loop Through Types
+  PUT https://qacandidatetest.ensek.io/ENSEK/buy/3/10 [200 OK, 394B, 35ms]
+  PUT https://qacandidatetest.ensek.io/ENSEK/buy/3/10   PUT https://qacandidatetest.ensek.io/ENSEK/buy/1/10   PUT https://qacandidatetest.ensek.io/ENSEK/buy/4/10   PUT https://qacandidatetest.ensek.io/ENSEK/buy/2/10 [200 OK, 394B, 36ms]
+  √  Status code is 200 for electric
+[200 OK, 374B, 110ms]
+  √  Status code is 200 for oil
+[200 OK, 394B, 122ms]
+  √  Status code is 200 for gas
+[200 OK, 282B, 123ms]
+  √  Status code is 200 for nuclear
+
+→ Purchase Energy - Invalid ID
+  PUT https://qacandidatetest.ensek.io/ENSEK/buy/9999/10 [400 BAD REQUEST, 265B, 32ms]
+  √  Status code is 400
+
+→ View All Orders
+  GET https://qacandidatetest.ensek.io/ENSEK/orders [200 OK, 1.92kB, 37ms]
+  √  Status code is 200
+
+→ View All Orders - No Auth
+  GET https://qacandidatetest.ensek.io/ENSEK/orders [200 OK, 1.92kB, 32ms]
+  2. Status code is 401
+
+→ Delete Order By OrderId
+  DELETE https://qacandidatetest.ensek.io/ENSEK/orders/eece3575-0418-4ef6-8488-c5f051dcf862 [500 INTERNAL SERVER ERROR, 242B, 40ms]
+  3. Status code is 200
+
+→ Delete Order By OrderId - No Auth
+  DELETE https://qacandidatetest.ensek.io/ENSEK/orders/eece3575-0418-4ef6-8488-c5f051dcf862 [500 INTERNAL SERVER ERROR, 242B, 33ms]
+  4. Status code is 200
+
+→ Reset Environment
+  POST https://qacandidatetest.ensek.io/ENSEK/reset [200 OK, 253B, 33ms]
+  √  Status code is 200
+
+→ Reset Environment - No Auth
+  POST https://qacandidatetest.ensek.io/ENSEK/reset [401 UNAUTHORIZED, 268B, 37ms]
+  √  Status code is 401
+
+┌─────────────────────────┬───────────────────┬───────────────────┐
+│                         │          executed │            failed │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              iterations │                 1 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│                requests │                17 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│            test-scripts │                13 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│      prerequest-scripts │                 0 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              assertions │                19 │                 4 │
+├─────────────────────────┴───────────────────┴───────────────────┤
+│ total run duration: 2s                                          │
+├─────────────────────────────────────────────────────────────────┤
+│ total data received: 5.46kB (approx)                            │
+├─────────────────────────────────────────────────────────────────┤
+│ average response time: 70ms [min: 32ms, max: 391ms, s.d.: 86ms] │
+└─────────────────────────────────────────────────────────────────┘
+
+[31m  # [39m[31m failure        [39m[31m detail                                                [39m
+[90m    [39m[90m                [39m[90m                                                       [39m
+ 1.  AssertionError  Status code is 401                                    
+                     expected response to have status code 401 but got 200 
+                     at assertion:0 in test-script                         
+                     inside "View Energy Types - No Auth"                  
+[90m    [39m[90m                [39m[90m                                                       [39m
+ 2.  AssertionError  Status code is 401                                    
+                     expected response to have status code 401 but got 200 
+                     at assertion:0 in test-script                         
+                     inside "View All Orders - No Auth"                    
+[90m    [39m[90m                [39m[90m                                                       [39m
+ 3.  AssertionError  Status code is 200                                    
+                     expected response to have status code 200 but got 500 
+                     at assertion:0 in test-script                         
+                     inside "Delete Order By OrderId"                      
+[90m    [39m[90m                [39m[90m                                                       [39m
+ 4.  AssertionError  Status code is 200                                    
+                     expected response to have status code 200 but got 500 
+                     at assertion:0 in test-script                         
+                     inside "Delete Order By OrderId - No Auth"            
